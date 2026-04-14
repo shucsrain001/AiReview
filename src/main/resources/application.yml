@@ -1,0 +1,28 @@
+spring:
+  # Spring AI 配置（本地 Ollama 示例）
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: llama3
+          temperature: 0.1
+    # 禁用 OpenAI，使用 Ollama
+    openai:
+      api-key: ${OPENAI_API_KEY:dummy}
+      chat:
+        enabled: false
+  # 定时任务开关
+  task:
+    scheduling:
+      enabled: true
+
+# 自定义配置
+code-review:
+  # Git 仓库本地路径列表
+  git-repo-paths:
+    - /Users/apple/IdeaProjects/maven_demo
+  # 评审日期：昨天（默认）
+  review-date: yesterday
+  # 非 Java 文件上下文行数（前后各5行）
+  non-java-context-lines: 5
